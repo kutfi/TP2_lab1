@@ -43,3 +43,9 @@ void Staff::printValues()
 	printName();
 	printf("job title: %s, responsibility: %s\nphone number: %s\n", getTitle(), getResp(), getPhone());
 }
+
+void Staff::Edit()
+{
+	printValues();
+
+}

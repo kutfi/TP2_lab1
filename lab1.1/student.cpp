@@ -47,3 +47,8 @@ void Student::printValues()
 	printf("group: %d, year: %d, grade %d\nspecialty: %s\n", getGroup(), getYear(), getGrade(), getSpec());
 
 }
+
+void Student::Edit()
+{
+	printValues();
+}

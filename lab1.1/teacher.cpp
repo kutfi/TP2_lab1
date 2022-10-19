@@ -85,7 +85,55 @@ void Teacher::printValues()
 	printf("groups:\n");
 	for (int i = 0; i < gr_size; i++)
 	{
-		printf("%d\n", groups[i]);
+		printf("%d\n", *groups[i]);
 	}
+
+}
+
+void Teacher::Edit()
+{
+	printValues();
+
+		int c = 0;
+
+		while (c == 0)
+		{
+			printf("\t-1_exit\n");
+
+			printf("\t1__edit subjects\n");
+			printf("\t2__add subject\n");
+			printf("\t3__edit groups\n");
+			printf("\t4__add group\n");
+			take(&c);
+			switch (c)
+			{
+			case -1:
+				c = -1;
+				break;
+
+
+
+			case 1:
+
+				c = 0;	break;
+
+			case 2:
+
+				c = 0;	break;
+
+			case 3:
+
+				c = 0;	break;
+
+			case 4:
+
+				c = 0;	break;
+
+			default:
+				printf("unknown command\n");
+				c = 0;	break;
+			}
+
+		}
 
 }

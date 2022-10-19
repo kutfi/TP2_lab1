@@ -1,24 +1,54 @@
 #include"Keeper.h"
 
 Keeper::Keeper() {
-
+	num = 0;
+	list = nullptr;
 }
 
 Keeper::~Keeper(){ 
 
 }
 
-void Keeper::Add(){ 
+void Keeper::Add(VUS* add){ 
+
+	num += 1;
+
+	 VUS** tmp = new VUS * [num];
+
+	for (int i = 0; i < num-1; i++)
+	{
+		tmp[i] = new VUS;
+		tmp[i] = list[i];
+	}
+
+	list = tmp;
+	list[num - 1] = add;
 
 }
 
-void Keeper::Edit(){ 
+int Keeper::getNum() {
+	return num;
+}
 
+void Keeper::Edit(int i){ 
+	if (i < 0 || i >= num)
+		printf("error: id out of range\n");
+	else
+	{
+		try {
+			list[i]->Edit();
+		}
+		catch (...)
+		{
+			printf("error\n");
+		}
+	}
 }
 
 void Keeper::Delete(){ 
 
 }
+
 
 
 

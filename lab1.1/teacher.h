@@ -1,3 +1,4 @@
+#pragma once
 #include "Vus.h"
 
 class Teacher : public VUS
@@ -21,5 +22,6 @@ public:
 	void delGroup(int n);
 
 	void printValues() override;
+	void Edit() override;
 
 };

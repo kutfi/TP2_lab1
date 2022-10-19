@@ -1,3 +1,4 @@
+#pragma once
 #include "stdio.h"
 #define NONE 0
 #define STUDENT 1
@@ -20,6 +21,7 @@ public:
 	void setName(char*);
 	char* getName();
 	virtual void printValues() {};
+	virtual void Edit() {};
 	
 
 };

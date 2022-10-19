@@ -1,5 +1,9 @@
+#pragma once
 #include "stdio.h"
 #include "Vus.h"
+#include "student.h"
+#include "teacher.h"
+#include "staff.h"
 
 class Keeper
 {
@@ -9,8 +13,10 @@ class Keeper
 public:
 	Keeper();
 	~Keeper();
-	void Add();
-	void Edit();
+
+	int getNum();
+	void Add(VUS* add);
+	void Edit(int);
 	void Delete();
 	void printAll();
 	void printStudents();

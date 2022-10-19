@@ -1,3 +1,4 @@
+#pragma once
 #include "Vus.h"
 
 class Staff : public VUS
@@ -19,5 +20,6 @@ public:
 	char* getPhone();
 
 	void printValues() override;
+	void Edit() override;
 
 };

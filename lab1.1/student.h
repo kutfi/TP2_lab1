@@ -1,3 +1,4 @@
+#pragma once
 #include "Vus.h"
 
 class Student : public VUS
@@ -21,4 +22,5 @@ public:
 	int getGrade();
 	char* getSpec();
 	void printValues() override;
+	void Edit() override;
 };
