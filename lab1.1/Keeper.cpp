@@ -1,5 +1,6 @@
 #include"Keeper.h"
 
+
 Keeper::Keeper() {
 	num = 0;
 	list = nullptr;
@@ -9,7 +10,22 @@ Keeper::~Keeper(){
 
 }
 
-void Keeper::Add(VUS* add){ 
+
+void Keeper::Add(int t){ 
+
+	VUS* add = nullptr;
+	switch (t)
+	{
+	case 1:
+		add = new Teacher;
+		break;
+	case 2:
+		add = new Student;
+		break;
+	case 3:
+		add = new Staff;
+		break;
+	}
 
 	num += 1;
 

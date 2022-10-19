@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Vus.h"
 #include "string.h"
 
@@ -21,7 +22,7 @@ void VUS::setType(int t) {
 }
 
 void VUS::setName(char* n) {
-	strcmp(name, n);
+	strcpy(name, n);
 }
 
 int VUS::getType() {

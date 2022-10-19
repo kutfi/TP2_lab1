@@ -1,4 +1,6 @@
 #pragma once
 
-int take(int* _x);
+int take(int*);
+
+int take_s(char* s, int l);
 

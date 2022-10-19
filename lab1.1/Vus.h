@@ -1,8 +1,9 @@
 #pragma once
 #include "stdio.h"
 #define NONE 0
-#define STUDENT 1
-#define TEACHER 2
+#define TEACHER 1
+#define STUDENT 2
+
 #define STAFF 3
 
 class VUS

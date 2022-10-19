@@ -42,6 +42,7 @@ char* Student::getSpec(){ return spec;}
 
 void Student::printValues()
 {
+	printf("student:\t");
 	printName();
 	
 	printf("group: %d, year: %d, grade %d\nspecialty: %s\n", getGroup(), getYear(), getGrade(), getSpec());

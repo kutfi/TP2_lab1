@@ -15,7 +15,8 @@ public:
 	~Keeper();
 
 	int getNum();
-	void Add(VUS* add);
+
+	void Add(int);
 	void Edit(int);
 	void Delete();
 	void printAll();

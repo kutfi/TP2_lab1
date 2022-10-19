@@ -1,7 +1,9 @@
 #include "stdio.h"
 #include "Keeper.h"
 #include "myscanf.h"
-
+#include "student.h"
+#include "teacher.h"
+#include "staff.h"
 void menu_commands()
 {
 	printf("menu");
@@ -40,7 +42,7 @@ int print_menu()
 	print_menu_commands();
 	while (true)
 	{
-		printf("print menu");
+		printf("print menu\n");
 		take(&c);
 		switch (c)
 		{
@@ -91,7 +93,7 @@ int add_menu()
 	add_menu_commands();
 	while (true)
 	{
-		printf("add menu");
+		printf("add menu\n");
 		take(&c);
 		switch (c)
 		{
@@ -104,15 +106,11 @@ int add_menu()
 			break;
 
 		case 1:
-			record.Add(new Teacher);
-			break;
 
 		case 2:
-			record.Add(new Student);
-			break;
 
 		case 3:
-			record.Add(new Staff);
+			record.Add(c);
 			break;
 
 		default:
@@ -133,13 +131,13 @@ void edit_menu_commands()
 
 }
 
-int add_menu()
+int edit_menu()
 {
 	int c = 0;
 	edit_menu_commands();
 	while (true)
 	{
-		printf("add menu");
+		printf("edit menu\n");
 		take(&c);
 		switch (c)
 		{
@@ -153,6 +151,11 @@ int add_menu()
 
 		case 1:
 		{
+			if (record.getNum() == 0)
+			{
+				printf("no records added\n");
+				break;
+			}
 			int id = -1;
 			while (id < 0 || id > record.getNum())
 				take(&id);
@@ -201,7 +204,7 @@ int menu()
 			break;
 
 		case 12:
-			record.Edit();
+			edit_menu();
 			break;
 
 		case 13:

@@ -5,8 +5,8 @@ class Teacher : public VUS
 {
 	int** groups;
 	int gr_size;
+	int s_size;
 	char** subjects;
-	int sbj_size;
 
 public:
 
@@ -15,10 +15,15 @@ public:
 	~Teacher();
 
 	void setGrSize(int n);
-	void setSbjSize(int n);
-	void addSubject(char* add);
+	void setSSize(int n);
+	int getGrSize();
+	int getSSize();
+
+	void addSubject();
+	void editSubject(int n);
 	void delSubject(int n);
-	void addGroup(int g);
+	void addGroup();
+	void editGroup(int n);
 	void delGroup(int n);
 
 	void printValues() override;

@@ -40,6 +40,7 @@ char* Staff::getPhone(){ return phone; }
 
 void Staff::printValues()
 {
+	printf("staff member:\t");
 	printName();
 	printf("job title: %s, responsibility: %s\nphone number: %s\n", getTitle(), getResp(), getPhone());
 }
