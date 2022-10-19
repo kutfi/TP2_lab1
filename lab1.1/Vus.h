@@ -21,6 +21,7 @@ public:
 	int getType();
 	void setName(char*);
 	char* getName();
+	void editName();
 	virtual void printValues() {};
 	virtual void Edit() {};
 	

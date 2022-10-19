@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Vus.h"
 #include "string.h"
+#include "myscanf.h"
 
 VUS::VUS() {
 	setType(NONE);
@@ -31,5 +32,15 @@ int VUS::getType() {
 
 char* VUS::getName() {
 	return name;
+}
+
+
+void VUS::editName() {
+
+	char new_val[200];
+	printf("enter new value for name:\n");
+	if (take_s(new_val, 200) == -1)
+		throw (char*)"input error, tile too long";
+	setName(new_val);
 }
 

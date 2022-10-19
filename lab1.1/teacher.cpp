@@ -125,89 +125,107 @@ void Teacher::Edit()
 {
 	printValues();
 
-		int c = 0;
+	int c = 0;
 
-		while (c == 0)
+	while (c == 0)
+	{
+		printValues();
+		printf("\t-1_exit\n");
+
+		printf("\t0__edit name\n");
+		printf("\t1__edit subjects\n");
+		printf("\t2__add subject\n");
+		printf("\t3__delete subject\n");
+		printf("\t4__edit groups\n");
+		printf("\t5__add group\n");
+		printf("\t6__delete group\n");
+		take(&c);
+		switch (c)
 		{
-			printValues();
-			printf("\t-1_exit\n");
-
-			printf("\t1__edit subjects\n");
-			printf("\t2__add subject\n");
-			printf("\t3__edit groups\n");
-			printf("\t4__add group\n");
-			take(&c);
-			switch (c)
+		case -1:
+			c = -1;
+			break;
+		case 0:
+			try {
+				editName();
+			}
+			catch (char* m)
 			{
-			case -1:
-				c = -1;
-				break;
-
-			case 1:
-				if (s_size == 0)
-					printf("no subjects found\n");
-				else
-				{
-					int i = -1;
-					printf("enter id of subject to edit\n");
-					while (i < 0 || i > getSSize())
-						take(&i);
+				throw m;
+			}
+			c = 0; break;
+		case 1:
+			if (s_size == 0)
+				printf("no subjects found\n");
+			else
+			{
+				int i = -1;
+				printf("enter id of subject to edit\n");
+				while (i < 0 || i > getSSize())
+					take(&i);
+				try {
 					editSubject(i);
 				}
-				c = 0;	break;
-
-			case 2:
-				addSubject();
-				c = 0;	break;
-
-			case 3:
-				if (s_size == 0)
-					printf("no subjects found\n");
-				else
+				catch (char* m)
 				{
-					int i = -1;
-					printf("enter id of subject to delete\n");
-					while (i < 0 || i > getSSize())
-						take(&i);
-					delSubject(i);
+					throw m;
 				}
-				c = 0;	break;
-
-			case 4:
-				if (gr_size == 0)
-					printf("no groups found\n");
-				else
-				{
-					int i = -1;
-					printf("enter id of group to edit\n");
-					while (i < 0 || i > getGrSize())
-						take(&i);
-					editGroup(i);
-				}
-				c = 0;	break;
-
-			case 5:
-				addGroup();
-				c = 0;	break;
 				
-			case 6:
-				if (gr_size == 0)
-					printf("no subjects found\n");
-				else
-				{
-					int i = -1;
-					printf("enter id of group to delete\n");
-					while (i < 0 || i > getGrSize())
-						take(&i);
-					delGroup(i);
-				}
-				c = 0;	break;
-
-			default:
-				printf("unknown command\n");
-				c = 0;	break;
 			}
+			c = 0;	break;
 
+		case 2:
+			addSubject();
+			c = 0;	break;
+
+		case 3:
+			if (s_size == 0)
+				printf("no subjects found\n");
+			else
+			{
+				int i = -1;
+				printf("enter id of subject to delete\n");
+				while (i < 0 || i > getSSize())
+					take(&i);
+				delSubject(i);
+			}
+			c = 0;	break;
+
+		case 4:
+			if (gr_size == 0)
+				printf("no groups found\n");
+			else
+			{
+				int i = -1;
+				printf("enter id of group to edit\n");
+				while (i < 0 || i > getGrSize())
+					take(&i);
+				editGroup(i);
+			}
+			c = 0;	break;
+
+		case 5:
+			addGroup();
+			c = 0;	break;
+				
+		case 6:
+			if (gr_size == 0)
+				printf("no subjects found\n");
+			else
+			{
+				int i = -1;
+				printf("enter id of group to delete\n");
+				while (i < 0 || i > getGrSize())
+					take(&i);
+				delGroup(i);
+			}
+			c = 0;	break;
+
+		default:
+			printf("unknown command\n");
+			c = 0;	break;
 		}
+
+	}
 
 }

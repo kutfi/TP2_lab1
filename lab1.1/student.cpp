@@ -52,4 +52,86 @@ void Student::printValues()
 void Student::Edit()
 {
 	printValues();
+
+	int c = 0;
+
+	while (c == 0)
+	{
+		printValues();
+		printf("\t-1_exit\n");
+
+		printf("\t0__edit name\n");
+		printf("\t1__edit group\n");
+		printf("\t2__edit year\n");
+		printf("\t3__edit grade\n");
+		printf("\t4__edit specialty\n");
+		take(&c);
+		switch (c)
+		{
+		case -1:
+			c = -1;
+			break;
+
+		case 0:
+			try {
+				editName();
+			}
+			catch (char* m)
+			{
+				throw m;
+			}
+			c = 0; break;
+
+		case 1:
+		{
+			int new_group = 0;
+			printf("enter new group value\n");
+			take(&new_group);
+			setGroup(new_group);
+		}
+			c = 0;	break;
+
+		case 2:
+		{
+			int new_year = 0;
+			printf("enter new year value\n");
+			take(&new_year);
+			setYear(new_year);
+		}
+			c = 0;	break;
+
+		case 3:
+		{
+			int new_grade = 0;
+			printf("enter new grade value\n");
+			take(&new_grade);
+			setGrade(new_grade);
+		}	
+			c = 0;	break;
+
+		case 4:
+		{
+			
+			printf("enter new specialty value\n");
+			char s[200];
+			try {
+				take_s(s, 200);
+			}
+			catch (char* m)
+			{
+				throw m;
+			}
+			setSpec(s);
+
+		}
+			c = 0;	break;
+
+
+		default:
+			printf("unknown command\n");
+			c = 0;	break;
+		}
+
+	}
+
 }
