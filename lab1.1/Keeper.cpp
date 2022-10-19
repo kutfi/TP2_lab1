@@ -1,13 +1,16 @@
 #include"Keeper.h"
-
+#include "myscanf.h"
 
 Keeper::Keeper() {
+	printf("\n\tKeeper()\n");
 	num = 0;
 	list = nullptr;
 }
 
 Keeper::~Keeper(){ 
-
+	printf("\n\t~Keeper()\n");
+	for (int i = 0; i < num; i++)
+		delete list[i];
 }
 
 
@@ -33,13 +36,12 @@ void Keeper::Add(int t){
 
 	for (int i = 0; i < num-1; i++)
 	{
-		tmp[i] = new VUS;
 		tmp[i] = list[i];
 	}
 
 	list = tmp;
 	list[num - 1] = add;
-
+	printf("\n\added\n");
 }
 
 int Keeper::getNum() {
@@ -62,16 +64,33 @@ void Keeper::Edit(int i){
 }
 
 void Keeper::Delete(){ 
+	int id = -1;
+	printf("%d records found\nenter number of record to delete (0 -- %d)\n", num, num-1);
+	while (id < 0 || id >= num)
+	{
+		take(&id);
+	}
 
+	delete list[id];
+	
+	for (int i = id; i< num-1; i++)
+	{
+		list[i] = list[i+1];
+	}
+	num--;
+	printf("\n\trecord was deleted\n\n");
 }
 
 
 
 
 void Keeper::printAll(){ 
-	printTeachers();
-	printStudents();
-	printStaff();
+	for (int i = 0; i < num; i++)
+	{
+		printf("\trecord -- %d\n", i);
+		list[i]->printValues();
+		printf("\n");
+	}
 }
 
 void Keeper::printTeachers() {

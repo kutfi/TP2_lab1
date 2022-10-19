@@ -4,13 +4,14 @@
 #include "myscanf.h"
 
 VUS::VUS() {
+	printf("\n\tvus()\n");
 	setType(NONE);
 	setName((char*)"unknown");
 
 }
 
 VUS::~VUS() {
-
+	printf("\n\t~vus()\n");
 }
 
 

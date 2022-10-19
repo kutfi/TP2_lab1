@@ -13,12 +13,12 @@ Student::Student()
 	setYear(0);
 	setGrade(0);
 	setSpec((char*)"unknown");
-	printf("student constructor\n");
+	printf("\n\tStudent()\n");
 }
 
 Student::~Student()
 {
-	printf("student destructor\n");
+	printf("\n\t~Student()\n");
 }
 
 void Student::setGroup(int g) {
@@ -54,7 +54,6 @@ void Student::Edit()
 	printValues();
 
 	int c = 0;
-
 	while (c == 0)
 	{
 		printValues();
@@ -80,6 +79,7 @@ void Student::Edit()
 			{
 				throw m;
 			}
+			printf("\n\tedited\n");
 			c = 0; break;
 
 		case 1:
@@ -88,6 +88,7 @@ void Student::Edit()
 			printf("enter new group value\n");
 			take(&new_group);
 			setGroup(new_group);
+			printf("\n\tedited\n");
 		}
 			c = 0;	break;
 
@@ -97,6 +98,7 @@ void Student::Edit()
 			printf("enter new year value\n");
 			take(&new_year);
 			setYear(new_year);
+			printf("\n\tedited\n");
 		}
 			c = 0;	break;
 
@@ -106,6 +108,7 @@ void Student::Edit()
 			printf("enter new grade value\n");
 			take(&new_grade);
 			setGrade(new_grade);
+			printf("\n\tedited\n");
 		}	
 			c = 0;	break;
 
@@ -122,7 +125,7 @@ void Student::Edit()
 				throw m;
 			}
 			setSpec(s);
-
+			printf("\n\tedited\n");
 		}
 			c = 0;	break;
 

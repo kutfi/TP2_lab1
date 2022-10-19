@@ -106,9 +106,7 @@ int add_menu()
 			break;
 
 		case 1:
-
 		case 2:
-
 		case 3:
 			record.Add(c);
 			break;
@@ -126,15 +124,15 @@ int add_menu()
 void edit_menu_commands()
 {
 	printf("\t-1_exit\n");
-
 	printf("\t1__enter id\n");
-
 }
 
 int edit_menu()
 {
 	int c = 0;
 	edit_menu_commands();
+
+
 	while (true)
 	{
 		printf("edit menu\n");
@@ -179,7 +177,7 @@ int edit_menu()
 
 int menu()
 {
-
+	printf("NUMERATION OF ITEMS BEGINS FROM 0\n");
 	int c = 0;
 	while (true)
 	{
@@ -204,14 +202,23 @@ int menu()
 			break;
 
 		case 12:
-			edit_menu();
+			if (record.getNum() == 0)
+				printf("no records found\n");
+			else
+				edit_menu();
 			break;
 
 		case 13:
+			if (record.getNum() == 0)
+				printf("no records found\n");
+			else
 			record.Delete();
 			break;
 
 		case 2:
+			if (record.getNum() == 0)
+				printf("no records found\n");
+			else
 			record.saveToFile();
 			break; 
 

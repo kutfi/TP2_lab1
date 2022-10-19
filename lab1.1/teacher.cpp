@@ -5,7 +5,7 @@
 #include "string.h"
 
 Teacher::Teacher() {
-	printf("teacher constructor\n");
+	printf("\n\tTeacher()\n");
 	setType(TEACHER);
 	
 	setSSize(0);
@@ -16,7 +16,7 @@ Teacher::Teacher() {
 }
 
 Teacher::~Teacher() {
-	printf("teacher destructor\n");
+	printf("\n\t~Teacher()\n");
 }
 
 void Teacher::setSSize(int n) {
@@ -153,6 +153,7 @@ void Teacher::Edit()
 			{
 				throw m;
 			}
+			printf("\n\tedited\n");
 			c = 0; break;
 		case 1:
 			if (s_size == 0)
@@ -170,7 +171,7 @@ void Teacher::Edit()
 				{
 					throw m;
 				}
-				
+				printf("\n\tedited\n");
 			}
 			c = 0;	break;
 
@@ -188,6 +189,7 @@ void Teacher::Edit()
 				while (i < 0 || i > getSSize())
 					take(&i);
 				delSubject(i);
+				printf("\n\deleted\n");
 			}
 			c = 0;	break;
 
@@ -201,6 +203,7 @@ void Teacher::Edit()
 				while (i < 0 || i > getGrSize())
 					take(&i);
 				editGroup(i);
+				printf("\n\tedited\n");
 			}
 			c = 0;	break;
 
@@ -218,6 +221,7 @@ void Teacher::Edit()
 				while (i < 0 || i > getGrSize())
 					take(&i);
 				delGroup(i);
+				printf("\n\deleted\n");
 			}
 			c = 0;	break;
 
