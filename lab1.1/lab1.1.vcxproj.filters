@@ -30,6 +30,9 @@
     <ClInclude Include="staff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="myscanf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Keeper.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="staff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="myscanf.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
