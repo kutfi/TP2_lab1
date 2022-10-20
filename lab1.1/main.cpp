@@ -20,7 +20,6 @@ void menu_commands()
 
 	printf("\t__\n");
 
-
 }
 
 void print_menu_commands()
@@ -34,7 +33,7 @@ void print_menu_commands()
 	printf("\t3__print staff members\n");
 }
 
-	Keeper record;
+Keeper record;
 
 
 int print_menu()
@@ -158,8 +157,13 @@ int edit_menu()
 			int id = -1;
 			while (id < 0 || id > record.getNum())
 				take(&id);
-			record.Edit(id);
-
+			try {
+				record.Edit(id);
+			}
+			catch (char* m)
+			{
+				printf("%s\n", m);
+			}
 		}
 			break;
 
@@ -224,11 +228,23 @@ int menu()
 			break; 
 
 		case 3:
-			record.loadFromFile();
+			try {
+				record.loadFromFile();
+			}
+			catch (char* m)
+			{
+				printf("%s\n", m);
+			}
 		break;
 
 		case 4:
-			record.changeFileName();
+			try {
+				record.changeFileName();
+			}
+			catch (char* m)
+			{
+				printf("%s\n", m);
+			}
 			break;
 
 

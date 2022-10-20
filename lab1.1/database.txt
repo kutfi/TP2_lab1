@@ -1,20 +1,4 @@
-N = 3
-3
-unknown
-unknown
-unknown
-unknown
-3
-unknown
-unknown
-unknown
-unknown
-3
-unknown
-unknown
-unknown
-unknown
-N = 3
+N = 4
 1
 unkno wn
 0
@@ -27,6 +11,4 @@ unkno wn
 unk nown
 3
 unkno wn
-unkn own
-unk nown
-unknown
+unkn o

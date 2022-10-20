@@ -23,7 +23,7 @@ void Keeper::Add(int t){
 	switch (t)
 	{
 	case 1:
-		add = new Teacher;
+		add = new Teacher;		
 		break;
 	case 2:
 		add = new Student;
@@ -31,11 +31,17 @@ void Keeper::Add(int t){
 	case 3:
 		add = new Staff;
 		break;
+	default:
+		throw "exeption: type error";
 	}
 
+	if (add == nullptr)
+		throw "exeption: memory allocation error";
 	num += 1;
 
 	 VUS** tmp = new VUS * [num];
+	 if (tmp == nullptr)
+		 throw "exeption: memory allocation error";
 
 	for (int i = 0; i < num-1; i++)
 	{
@@ -44,6 +50,7 @@ void Keeper::Add(int t){
 
 	list = tmp;
 	list[num - 1] = add;
+
 	printf("\n\added\n");
 }
 
@@ -180,7 +187,8 @@ int Keeper::changeFileName()
 
 void Keeper::saveToFile() {
 
-	FILE* fp = fopen(getFileName(), "a");
+	FILE* fp = fopen(getFileName(), "w"); fclose(fp);
+	fp = fopen(getFileName(), "a");
 	if (fp == NULL)
 	{
 		printf("file not found\n");
@@ -205,11 +213,12 @@ void Keeper::loadFromFile(){
 
 	int size = 0;
 	
-
 	if (fscanf(fp, "N = %d\n", &size) != 1)
 		throw (char*)"exeption: data coppupted, possible data loss\n";
+	
 	if (size <= 0)
 		throw (char*)"exeption: data coppupted, possible data loss\n";
+	
 	VUS** tmpList = new VUS * [size];
 	int type = -1;
 	VUS* add;
@@ -232,12 +241,16 @@ void Keeper::loadFromFile(){
 		default:
 			throw (char*)"exeption: data coppupted, possible data loss\n";
 		}
-		add->scanF(fp);
+		try { add->scanF(fp); }
+		catch (...) { throw (char*)"exeption: data coppupted, possible data loss\n"; }
 		tmpList[i] = add;
 	}
 
 
 	VUS** newList = new VUS * [size + getNum()];
+
+	if (newList == nullptr)
+		throw "exeption: memory allocation error";
 
 	for (int i = 0; i < getNum(); i++)
 		newList[i] = list[i];

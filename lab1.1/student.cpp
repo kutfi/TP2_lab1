@@ -65,9 +65,9 @@ void Student::scanF(FILE* f)
 	char s[200] = {0};
 	fgets(s, 200, f); setName(s);
 	int i = 0;
-	fscanf(f, "%d\n", &i); setGroup(i);
-	fscanf(f, "%d\n", &i); setYear(i);
-	fscanf(f, "%d\n", &i); setGrade(i);
+	if(fscanf(f, "%d\n", &i)!= 1) throw 1; setGroup(i);
+	if (fscanf(f, "%d\n", &i) != 1) throw 1; setYear(i);
+	if (fscanf(f, "%d\n", &i) != 1) throw 1; setGrade(i);
 	fgets(s, 200, f); setSpec(s);
 }
 
