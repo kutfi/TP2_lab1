@@ -12,7 +12,7 @@ Student::Student()
 	setGroup(0);
 	setYear(0);
 	setGrade(0);
-	setSpec((char*)"unk nown");
+	setSpec((char*)"unknown");
 	printf("\n\tStudent()\n");
 }
 
@@ -46,7 +46,6 @@ void Student::printValues()
 	printName();
 	
 	printf("group: %d, year: %d, grade %d\nspecialty: %s\n", getGroup(), getYear(), getGrade(), getSpec());
-
 }
 
 void Student::printF(FILE* f)
@@ -63,12 +62,12 @@ void Student::scanF(FILE* f)
 {
 	setType(STUDENT);
 	char s[200] = {0};
-	fgets(s, 200, f); setName(s);
+	fgets(s, 200, f); trimToFormat(s); setName(s);
 	int i = 0;
 	if(fscanf(f, "%d\n", &i)!= 1) throw 1; setGroup(i);
 	if (fscanf(f, "%d\n", &i) != 1) throw 1; setYear(i);
 	if (fscanf(f, "%d\n", &i) != 1) throw 1; setGrade(i);
-	fgets(s, 200, f); setSpec(s);
+	fgets(s, 200, f); trimToFormat(s); setSpec(s);
 }
 
 void Student::Edit()

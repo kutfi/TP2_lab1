@@ -142,15 +142,17 @@ void Teacher::scanF(FILE* f)
 	fgets(s, 200, f); setName(s);
 	int i = 0;
 	if (fscanf(f, "%d\n", &i) != 1) throw 1; setSSize(i);
+	subjects = new char* [getSSize()];
 	for (int id = 0; id < s_size; id++)
 	{
-		trimToFormat(s);
-		fgets(s, 200, f); 
+		
+		fgets(s, 200, f); trimToFormat(s);
+		subjects[id] = new char[200];
 		strcpy(subjects[id], s);
 	}
 
 	if (fscanf(f, "%d\n", &i) != 1) throw 1; setGrSize(i);
-
+	groups = new int *[getGrSize()];
 	for (int id = 0; id < gr_size; id++)
 	{
 		if (fscanf(f, "%d\n", &i) != 1) throw 1;

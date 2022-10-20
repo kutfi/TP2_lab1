@@ -6,7 +6,7 @@
 VUS::VUS() {
 	printf("\n\tvus()\n");
 	setType(NONE);
-	setName((char*)"unkno wn");
+	setName((char*)"unknown");
 
 }
 

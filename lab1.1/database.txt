@@ -1,4 +1,4 @@
-N = 4
+N = 5
 1
 unkno wn
 0
@@ -8,7 +8,19 @@ unkno wn
 0
 0
 0
-unk nown
+unknown
 3
 unkno wn
-unkn o
+unknown
+unk nown
+unknown
+2
+unkno wn
+0
+0
+0
+unknown
+1
+unkno wn
+0
+0

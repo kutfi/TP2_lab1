@@ -12,8 +12,8 @@ Staff::Staff()
 {
 	
 	setType(STAFF);
-	setTitle((char*)"unkn own");
-	setResp((char*)"unk nown");
+	setTitle((char*)"unknown");
+	setResp((char*)"unknown");
 	setPhone((char*)"unknown");
 	printf("\n\tStaff()\n");
 }
