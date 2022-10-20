@@ -72,8 +72,6 @@ void Student::scanF(FILE* f)
 
 void Student::Edit()
 {
-	printValues();
-
 	int c = 0;
 	while (c == 0)
 	{

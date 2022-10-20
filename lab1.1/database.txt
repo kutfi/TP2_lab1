@@ -1,26 +1,13 @@
-N = 5
+N = 2
 1
-unkno wn
-0
-0
-2
-unkno wn
-0
-0
-0
 unknown
-3
-unkno wn
-unknown
-unk nown
+0
+0
+1
 unknown
 2
-unkno wn
-0
-0
-0
-unknown
-1
-unkno wn
-0
-0
+jhgvjhgf
+j hvdf dk v kdfvhj jkhd hfkvd
+2
+12321
+134

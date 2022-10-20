@@ -156,7 +156,9 @@ void Teacher::scanF(FILE* f)
 	for (int id = 0; id < gr_size; id++)
 	{
 		if (fscanf(f, "%d\n", &i) != 1) throw 1;
+		groups[id] = new int;
 		*groups[id] = i;
+	
 	}
 
 }
@@ -166,7 +168,6 @@ int Teacher::getSSize() { return s_size; }
 
 void Teacher::Edit()
 {
-	printValues();
 
 	int c = 0;
 

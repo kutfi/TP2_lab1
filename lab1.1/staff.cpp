@@ -69,7 +69,6 @@ void Staff::scanF(FILE* f)
 
 void Staff::Edit()
 {
-	printValues();
 
 	int c = 0;
 	while (c == 0)
@@ -80,6 +79,7 @@ void Staff::Edit()
 		printf("\t0__edit name\n");
 		printf("\t1__edit job title\n");
 		printf("\t2__edit phone number\n");
+		printf("\t3__edit responsibility\n");
 
 		take(&c);
 		switch (c)
@@ -127,6 +127,21 @@ void Staff::Edit()
 				throw m;
 			}
 			setPhone(s);
+			printf("\n\tedited\n");
+		}
+		c = 0;	break;
+		case 3:
+		{
+			printf("enter new responsibility\n");
+			char s[200];
+			try {
+				take_s(s, 200);
+			}
+			catch (char* m)
+			{
+				throw m;
+			}
+			setResp(s);
 			printf("\n\tedited\n");
 		}
 		c = 0;	break;
