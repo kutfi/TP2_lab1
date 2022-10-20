@@ -23,6 +23,8 @@ public:
 	char* getName();
 	void editName();
 	virtual void printValues() {};
+	virtual void printF(FILE* fp) {};
+	virtual void scanF(FILE* fp) {};
 	virtual void Edit() {};
 	
 

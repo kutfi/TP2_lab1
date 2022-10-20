@@ -10,12 +10,16 @@ class Keeper
 	int num;
 	VUS** list;
 
+	char fileName[200];
+
 public:
 	Keeper();
 	~Keeper();
 
 	int getNum();
-
+	char* getFileName();
+	void setFileName(char*);
+	int changeFileName();
 	void Add(int);
 	void Edit(int);
 	void Delete();

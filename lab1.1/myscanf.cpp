@@ -35,3 +35,10 @@ int take_s(char* s, int l)
 	_set_invalid_parameter_handler(oldHandler);
 	return 0;
 }
+
+void trimToFormat(char* s)
+{
+	int l = strlen(s);
+	if (s[l - 1] == '\n')	
+		s[l - 1] = '\0';
+}

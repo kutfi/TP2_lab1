@@ -118,6 +118,47 @@ void Teacher::printValues()
 
 }
 
+void Teacher::printF(FILE* f)
+{
+	fprintf(f, "%d\n", getType());
+	fprintf(f, "%s\n", getName());
+	fprintf(f, "%d\n", getSSize());
+	for (int i = 0; i < s_size; i++)
+		fprintf(f, "%s\n", subjects[i]);
+	
+
+	fprintf(f, "%d\n", getGrSize());
+
+	for (int i = 0; i < gr_size; i++)
+		fprintf(f, "%d\n", *groups[i]);
+	
+
+}
+
+void Teacher::scanF(FILE* f)
+{
+	setType(TEACHER);
+	char s[200] = { 0 };
+	fgets(s, 200, f); setName(s);
+	int i = 0;
+	fscanf(f, "%d\n", &i); setSSize(i);
+	for (int id = 0; id < s_size; id++)
+	{
+		trimToFormat(s);
+		fgets(s, 200, f); 
+		strcpy(subjects[id], s);
+	}
+
+	fscanf(f, "%d\n", &i); setGrSize(i);
+
+	for (int id = 0; id < gr_size; id++)
+	{
+		fscanf(f, "%d\n", &i); 
+		*groups[id] = i;
+	}
+
+}
+
 int Teacher::getGrSize() { return gr_size; }
 int Teacher::getSSize() { return s_size; }
 

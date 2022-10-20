@@ -12,8 +12,8 @@ Staff::Staff()
 {
 	
 	setType(STAFF);
-	setTitle((char*)"unknown");
-	setResp((char*)"unknown");
+	setTitle((char*)"unkn own");
+	setResp((char*)"unk nown");
 	setPhone((char*)"unknown");
 	printf("\n\tStaff()\n");
 }
@@ -24,14 +24,14 @@ Staff::~Staff()
 }
 
 void Staff::setTitle(char* t) {
-	strcpy(title, t);
+	trimToFormat(t); strcpy(title, t);
 }
 void Staff::setResp(char* r) {
-	strcpy(resp, r);
+	trimToFormat(r); strcpy(resp, r);
 }
 
 void Staff::setPhone(char* p) {
-	strcpy(phone, p);
+	trimToFormat(p); strcpy(phone, p);
 }
 
 
@@ -45,6 +45,27 @@ void Staff::printValues()
 	printName();
 	printf("job title: %s, responsibility: %s\nphone number: %s\n", getTitle(), getResp(), getPhone());
 }
+
+void Staff::printF(FILE* f)
+{
+	fprintf(f, "%d\n", getType());
+	fprintf(f, "%s\n", getName());
+	fprintf(f, "%s\n", getTitle());
+	fprintf(f, "%s\n", getResp());
+	fprintf(f, "%s\n", getPhone());
+}
+void Staff::scanF(FILE* f)
+{
+	char s[200] = { 0 };
+	setType(STAFF);
+	fgets(s, 200, f); setName(s);
+	fgets(s, 200, f); setTitle(s);
+	fgets(s, 200, f); setResp(s);
+	fgets(s, 200, f); setPhone(s);
+}
+
+
+
 
 void Staff::Edit()
 {

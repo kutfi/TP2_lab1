@@ -1,10 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include"Keeper.h"
 #include "myscanf.h"
+#include "string.h"
 
 Keeper::Keeper() {
 	printf("\n\tKeeper()\n");
 	num = 0;
 	list = nullptr;
+	setFileName((char*)"database.txt");
 }
 
 Keeper::~Keeper(){ 
@@ -123,10 +126,127 @@ void Keeper::printStaff() {
 	}
 }
 
-void Keeper::saveToFile(){ 
-
+void Keeper::setFileName(char* n)
+{
+	strcpy(fileName, n);
 }
 
-void Keeper::loadFromFile(){ 
 
+char* Keeper::getFileName()
+{
+	return fileName;
+}
+
+
+int Keeper::changeFileName()
+{
+	int c = 0;
+	while (c == 0)
+	{
+		printf("\t-1_exit\n");
+
+		printf("\t0__edit name\n");
+		printf("\t2__see name\n");
+		take(&c);
+		switch(c)
+		{
+			default:
+				printf("unknown command\n");
+				break;
+		case -1:
+				return 0;
+		case 1:
+		{
+			printf("enter new file name\n");
+			char s[200];
+			try {
+				take_s(s, 200);
+			}
+			catch (char* m)
+			{
+				throw m;
+			}
+			setFileName(s);
+			printf("\n\tedited\n");
+		}
+		case 2:
+			printf("filename is %s\n", getFileName());
+			break;
+
+		}
+	}
+}
+
+
+void Keeper::saveToFile() {
+
+	FILE* fp = fopen(getFileName(), "a");
+	if (fp == NULL)
+	{
+		printf("file not found\n");
+		return;
+	}
+	fprintf(fp, "N = %d\n", getNum());
+	for (int i = 0; i < getNum(); i++)
+	{
+		list[i]->printF(fp);
+	}
+
+	fclose(fp);
+};
+
+void Keeper::loadFromFile(){ 
+	FILE* fp = fopen(getFileName(), "r");
+	if (fp == NULL)
+	{
+		printf("file not found\n");
+		return;
+	}
+
+	int size = 0;
+	
+
+	if (fscanf(fp, "N = %d\n", &size) != 1)
+		throw (char*)"exeption: data coppupted, possible data loss\n";
+	if (size <= 0)
+		throw (char*)"exeption: data coppupted, possible data loss\n";
+	VUS** tmpList = new VUS * [size];
+	int type = -1;
+	VUS* add;
+	for (int i = 0; i < size; i++)
+	{
+		if (fscanf(fp, "%d\n", &type) != 1)
+			throw (char*)"exeption: data coppupted, possible data loss\n";
+
+		switch (type)
+		{
+		case TEACHER:
+			try { add = new Teacher; } catch (char* m) { throw m; } break;
+
+		case STUDENT:
+			try { add = new Student; } catch (char* m) { throw m; } break;
+
+		case STAFF:
+			try { add = new Staff; } catch (char* m) { throw m; } break;
+
+		default:
+			throw (char*)"exeption: data coppupted, possible data loss\n";
+		}
+		add->scanF(fp);
+		tmpList[i] = add;
+	}
+
+
+	VUS** newList = new VUS * [size + getNum()];
+
+	for (int i = 0; i < getNum(); i++)
+		newList[i] = list[i];
+
+	for (int i = 0; i < size; i++)
+		newList[i + getNum()] = tmpList[i];
+	
+
+	list = newList;
+	num = getNum() + size;
+	fclose(fp);
 }

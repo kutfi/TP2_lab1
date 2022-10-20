@@ -6,7 +6,7 @@
 VUS::VUS() {
 	printf("\n\tvus()\n");
 	setType(NONE);
-	setName((char*)"unknown");
+	setName((char*)"unkno wn");
 
 }
 
@@ -24,7 +24,7 @@ void VUS::setType(int t) {
 }
 
 void VUS::setName(char* n) {
-	strcpy(name, n);
+	trimToFormat(n); strcpy(name, n);
 }
 
 int VUS::getType() {

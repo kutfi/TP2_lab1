@@ -12,6 +12,7 @@ void menu_commands()
 
 	printf("\n\t2__save\n");
 	printf("\t3__load\n");
+	printf("\t4__change file name\n");
 	
 	printf("\n\t11__add record\n");
 	printf("\t12__edit record\n");
@@ -225,6 +226,10 @@ int menu()
 		case 3:
 			record.loadFromFile();
 		break;
+
+		case 4:
+			record.changeFileName();
+			break;
 
 
 		default:

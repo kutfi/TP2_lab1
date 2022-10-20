@@ -20,6 +20,8 @@ public:
 	char* getPhone();
 
 	void printValues() override;
+	void printF(FILE*) override;
+	void scanF(FILE*) override;
 	void Edit() override;
 
 };

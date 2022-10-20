@@ -3,8 +3,9 @@
 
 class Teacher : public VUS
 {
-	int** groups;
 	int gr_size;
+	int** groups;
+	
 	int s_size;
 	char** subjects;
 
@@ -27,6 +28,8 @@ public:
 	void delGroup(int n);
 
 	void printValues() override;
+	void printF(FILE*) override;
+	void scanF(FILE*) override;
 	void Edit() override;
 
 };
